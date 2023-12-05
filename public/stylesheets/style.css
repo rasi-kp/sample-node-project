@@ -1,0 +1,22 @@
+body {
+  background-color: rgb(160, 199, 199);
+
+}
+a {
+  color: #00B7FF;
+}
+h1{
+text-align: center;
+}
+.color{
+  background-color: aqua;
+  padding: 5px;
+  font-size: large;
+}
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(140, 59, 228),rgb(109, 213, 254), rgba(37, 117, 252, 1))
+  }

@@ -1,0 +1,73 @@
+<div class="container-fluid justify-content-center align-items-center">
+    <div class="d-flex justify-content-between bg-blue p-3">
+        <!-- Contact Information -->
+        <div class="d-flex ">
+            <div class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden"></span>
+            </div>
+            <div class="spinner-grow spinner-grow-sm" role="status">
+                <span class="visually-hidden"></span>
+            </div>
+            <h5 class="mr-3">&nbsp; Admin : {{username}}</h5>
+        </div>
+
+        <!-- Social Media Links and Greeting -->
+        <div class="d-flex align-items-center">
+            <a href="/mainadmin" class="btn btn-primary me-2">Home</a>
+            <a href="/logout" onclick="logout()" class="btn btn-primary">Log Out</a>
+        </div>
+    </div>
+    <h3 class="align-items-center text-center mt-2">All Product</h3>
+
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-sm-12 col-lg-10">
+            <div class="table-responsive mt-3 ">
+                <table class="table " style="width:80%;">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">Seller User ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Image</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each product}}
+                        <tr>
+                            <th scope="row">{{this.user}}</th>
+                            <td>{{this.name}}</td>
+                            <td>{{this.description}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.category}}</td>
+                             <td><img style="width:50px;height:50px" src="/uploadimage/{{this.image_url}}" alt=""></td>
+                            <td><a href="/mainadmin/editproduct/{{this._id}}" class="btn btn-primary">Edit</a></td>
+                            <td><a href="/mainadmin/deleteproduct/{{this._id}}" class="btn btn-danger"
+                                    onclick="return confirm('Are you want to Delete ?')">Delete</a>
+                            </td>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a class="text-secondary" href="#">localhost:3000</a>, All Right Reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          Designed By <a class="text-secondary" href="https://rasikp.in">Rasi</a>
+        </div>
+      </div>
+    </div>
+  </div>

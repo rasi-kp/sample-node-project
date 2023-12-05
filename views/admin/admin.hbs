@@ -1,0 +1,123 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand " href="#">
+            <img src="/images/lr.png" alt="Admin Image" class="img-fluid mb-1" width="33" height="33">
+            Admin :{{username}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            
+                <button type="button" class="btn btn-primary me-3 mb-1 mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Add Product
+            </button>
+                <a class="btn btn-outline-primary mb-1 me-1 mt-2" href="/logout">Logout</a>
+            </ul>
+            
+        </div>
+    </div>
+</nav>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Items</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action='admin\addproduct' method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label>Name of Items</label>
+                            <input type="text" class="form-control" name="title" placeholder="Enter Title of Item"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" name="description" placeholder="Description"
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="number" class="form-control" name="Price" placeholder="Price" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-control" name="category">
+                                <option>Electronics</option>
+                                <option>Fashion</option>
+                                <option>Mobiles</option>
+                                <option>Laptops</option>
+                                <option>Others</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Upload Image</label><br>
+                            <input type="file" name="image" class="form-control-file" required>
+                        </div><br>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h3 class="align-items-center text-center mt-2">Admin Page</h3>
+    <div class="row justify-content-center ml-5">
+        <div class="col-12 col-sm-12 col-lg-10 col-xl-10">
+            <div class="table-responsive ">
+                <table class="table " style="width:80%;">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Image</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each items}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.description}}</td>
+                            <td>{{this.price}}</td>
+                            <td>{{this.category}}</td>
+                            <td><img style="width:50px;height:50px" src="/uploadimage/{{this.image_url}}" alt=""></td>
+                            <td><a href="/admin/edit/{{this._id}}" class="btn btn-primary">Edit</a></td>
+                            <td><a href="/admin/delete/{{this._id}}" class="btn btn-danger"
+                                    onclick="return confirm('Are you want to Delete ?')">Delete</a>
+                            </td>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <h3 class="align-items-center text-center mt-2" style="color: red;">{{ msg }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid bg-dark text-white py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          &copy; <a class="text-secondary" href="#">localhost:3000</a>, All Right Reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          Designed By <a class="text-secondary" href="https://rasikp.in">Rasi</a>
+        </div>
+      </div>
+    </div>
+  </div>

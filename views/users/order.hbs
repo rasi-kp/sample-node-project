@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand " href="#">
+            <img src="/images/lr.png" alt="Admin Image" class="img-fluid mb-1" width="33" height="33">
+            Hi {{username}}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-2">             
+                <a class="btn btn-outline-primary mb-1 me-1" href="/home">Home</a>
+                <a class="btn btn-outline-primary mb-1 me-1" href="/logout">Logout</a>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<h1>Ordered items are</h1>
+<script>
+    async function logout() {
+      try {
+        alert(" Successfully logged out! ");
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    }
+  </script>
